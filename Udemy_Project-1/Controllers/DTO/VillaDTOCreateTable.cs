@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Udemy_Project_1.Controllers.DTO
 {
-    public class VillaDTO
+    public class VillaDTOCreateTable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

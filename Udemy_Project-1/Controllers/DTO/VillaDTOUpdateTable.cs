@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Udemy_Project_1.Controllers.DTO
 {
-    public class VillaDTO
+    public class VillaDTOUpdateTable
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
+       
         public int Id { get; set; }
         [Required]
         [MaxLength(30)]
@@ -17,8 +17,10 @@ namespace Udemy_Project_1.Controllers.DTO
         public string Details { get; set; }
         [Required]
         public double Rate { get; set; }
+        [Required]
 
         public int sqft { get; set; }
+        [Required]
 
         public int occupancy { get; set; }
 

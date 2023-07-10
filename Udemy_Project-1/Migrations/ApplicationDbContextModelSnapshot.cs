@@ -22,6 +22,35 @@ namespace Udemy_Project_1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Udemy_Project_1.Models.LocalUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LocalUsers");
+                });
+
             modelBuilder.Entity("Udemy_Project_1.Models.Villa", b =>
                 {
                     b.Property<int>("Id")
@@ -63,14 +92,14 @@ namespace Udemy_Project_1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Villas1");
+                    b.ToTable("Villa");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedTime = new DateTime(2023, 7, 5, 10, 24, 27, 307, DateTimeKind.Local).AddTicks(8149),
+                            CreatedTime = new DateTime(2023, 7, 9, 8, 29, 32, 726, DateTimeKind.Local).AddTicks(8630),
                             Details = "ahbsdjcnnnnnnnnnnm jxnsjncd xjnjx",
                             Name = "Royal Villa",
                             Rate = 100.0,
@@ -83,7 +112,7 @@ namespace Udemy_Project_1.Migrations
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedTime = new DateTime(2023, 7, 5, 10, 24, 27, 307, DateTimeKind.Local).AddTicks(8164),
+                            CreatedTime = new DateTime(2023, 7, 9, 8, 29, 32, 726, DateTimeKind.Local).AddTicks(8644),
                             Details = "ahbsdjcnnnnnnnnnnm jxnsjncd xjnjx",
                             Name = "Royal Villa2",
                             Rate = 100.0,
@@ -96,7 +125,7 @@ namespace Udemy_Project_1.Migrations
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedTime = new DateTime(2023, 7, 5, 10, 24, 27, 307, DateTimeKind.Local).AddTicks(8166),
+                            CreatedTime = new DateTime(2023, 7, 9, 8, 29, 32, 726, DateTimeKind.Local).AddTicks(8646),
                             Details = "ahbsdjcnnnnnnnnnnm jxnsjncd xjnjx",
                             Name = "Royal Villa3",
                             Rate = 100.0,
@@ -109,7 +138,7 @@ namespace Udemy_Project_1.Migrations
                         {
                             Id = 4,
                             Amenity = "",
-                            CreatedTime = new DateTime(2023, 7, 5, 10, 24, 27, 307, DateTimeKind.Local).AddTicks(8168),
+                            CreatedTime = new DateTime(2023, 7, 9, 8, 29, 32, 726, DateTimeKind.Local).AddTicks(8648),
                             Details = "ahbsdjcnnnnnnnnnnm jxnsjncd xjnjx",
                             Name = "Royal Villa4",
                             Rate = 100.0,
@@ -122,7 +151,7 @@ namespace Udemy_Project_1.Migrations
                         {
                             Id = 5,
                             Amenity = "",
-                            CreatedTime = new DateTime(2023, 7, 5, 10, 24, 27, 307, DateTimeKind.Local).AddTicks(8170),
+                            CreatedTime = new DateTime(2023, 7, 9, 8, 29, 32, 726, DateTimeKind.Local).AddTicks(8649),
                             Details = "ahbsdjcnnnnnnnnnnm jxnsjncd xjnjx",
                             Name = "Royal Villa5",
                             Rate = 100.0,
@@ -131,6 +160,42 @@ namespace Udemy_Project_1.Migrations
                             occupancy = 4,
                             sqft = 100
                         });
+                });
+
+            modelBuilder.Entity("Udemy_Project_1.Models.VillaNumber", b =>
+                {
+                    b.Property<int>("VillaNo")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SpclDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("VillaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("VillaNo");
+
+                    b.HasIndex("VillaId");
+
+                    b.ToTable("VillaNumber");
+                });
+
+            modelBuilder.Entity("Udemy_Project_1.Models.VillaNumber", b =>
+                {
+                    b.HasOne("Udemy_Project_1.Models.Villa", "Villa")
+                        .WithMany()
+                        .HasForeignKey("VillaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Villa");
                 });
 #pragma warning restore 612, 618
         }

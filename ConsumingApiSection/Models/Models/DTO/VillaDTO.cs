@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Udemy_Project_1.Controllers.DTO
+namespace ConsumingApiSection.Models.DTO
 {
-    public class VillaDTOCreateTable
+    public class VillaDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         [MaxLength(30)]
-        public String Name
+        public string Name
         {
             get; set;
         }
@@ -26,6 +26,6 @@ namespace Udemy_Project_1.Controllers.DTO
 
         public string Amenity { get; set; }
 
-      
+
     }
 }

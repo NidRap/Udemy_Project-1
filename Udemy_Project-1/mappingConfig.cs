@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Udemy_Project_1.Controllers.DTO;
 using Udemy_Project_1.Models;
+using Udemy_Project_1.Models.DTO;
 
 namespace Udemy_Project_1
 {
@@ -12,9 +12,18 @@ namespace Udemy_Project_1
             CreateMap<Villa, VillaDTO>();
             CreateMap<VillaDTO, Villa>();
 
-            CreateMap<Villa ,VillaDTOCreateTable>().ReverseMap();
+            CreateMap<Villa, VillaDTOCreateTable>().ReverseMap();
 
             CreateMap<Villa, VillaDTOUpdateTable>().ReverseMap();
+            
+
+
+
+			CreateMap<VillaNumber, VillaNumberDTO>().ReverseMap();
+           
+            CreateMap<VillaNumber ,VillaNumberCreateDTO>().ReverseMap();
+
+            CreateMap<VillaNumber, VillaNumberUpdateDTO>().ReverseMap();
 
 
         }

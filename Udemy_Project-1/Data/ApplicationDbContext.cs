@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿//using ConsumingApiSection.Models;
+using Microsoft.EntityFrameworkCore;
 using Udemy_Project_1.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -10,7 +11,12 @@ namespace Udemy_Project_1.Data
         {
         }
 
-        public DbSet<Villa> Villas1
+
+		public DbSet<LocalUser>LocalUsers
+		{ get; set; }
+		public DbSet<Villa> Villas1
+        { get; set; }
+        public DbSet<VillaNumber> VillaNumber
         { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
